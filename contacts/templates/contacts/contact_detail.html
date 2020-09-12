@@ -2,8 +2,15 @@
 
 {% block content %}
 
-    <div class="w3-container">
-        <h1>Contact Details</h1>
+    <div class="w3-container w3-teal">
+        <div class="w3-row">
+            <div class="w3-half">
+                <h1>Contact Details</h1>
+            </div>
+            <div class="w3-half">
+                <a href="{% url 'contact_update' contact.id %}" class="w3-button w3-green w3-margin">Update</a>
+            </div>
+        </div>
     </div>
 
     <div class="w3-container">

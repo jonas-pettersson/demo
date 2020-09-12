@@ -1,0 +1,25 @@
+{% extends 'contacts/base.html' %}
+
+{% block content %}
+    <div class="w3-container w3-teal">
+        <h1>Contact Update</h1>
+    </div>
+
+    <div class="w3-container">
+
+        <form action="" method="post">
+        {% csrf_token %}
+            <fieldset class="form-group">
+                <ul class="w3-ul w3-half">
+                    <li><label for="first_name">{{ form.first_name.label_tag }}</label>
+                    <input type="text" class="w3-input" id="first_name" name="first_name" value={{ form.first_name.value }}></li>
+                    <li><label for="last_name">{{ form.last_name.label_tag }}</label>
+                    <input type="text" class="w3-input" id="last_name" name="last_name" value={{ form.last_name.value }}></li>
+                    <li><label for="email">{{ form.email.label_tag }} </label>
+                    <input type="email" class="w3-input" id="email" name="email" value={{ form.email.value }}></li>
+                    <li><button type="submit">Save</button></li>
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
