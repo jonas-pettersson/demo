@@ -1,0 +1,41 @@
+{% extends 'contacts/base.html' %}
+
+{% block content %}
+    <div class="w3-container w3-teal">
+        <h1>Please login</h1>
+    </div>
+
+    <div class="w3-container">
+
+        {% if form.errors %}
+            {% for error_tag, error_message  in form.errors.items %}
+                {% if error_tag == "__all__" %}
+                    <div class="w3-panel w3-red">
+                        <p>{{ error_message }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <form action="" method="post">
+        {% csrf_token %}
+            <fieldset class="form-group">
+                <ul class="w3-ul w3-half">
+                    <li>
+                        <label for="username">{{ form.username.label_tag }}</label>
+                        {% if form.username.errors %}<div class="w3-panel w3-red">{{ form.username.errors }}</div>{% endif %}
+                        <input type="text" class="w3-input" id="username" name="username">
+                    </li>
+                    <li>
+                        <label for="password">{{ form.password.label_tag }}</label>
+                        {% if form.password.errors %} <div class="w3-panel w3-red">{{ form.password.errors }}</div>{% endif %}
+                        <input type="password" class="w3-input" id="password" name="password">
+                    </li>
+                    <li>
+                        <button type="submit">Login</button>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
