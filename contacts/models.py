@@ -7,6 +7,9 @@ class Contact(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    company = models.ForeignKey(
+        'Company', on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = _("Contact")
@@ -17,3 +20,17 @@ class Contact(models.Model):
 
     def get_absolute_url(self):
         return reverse("contact_detail", kwargs={"pk": self.pk})
+
+
+class Company(models.Model):
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = _("Company")
+        verbose_name_plural = _("Companys")
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("Company_detail", kwargs={"pk": self.pk})
