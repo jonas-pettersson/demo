@@ -27,12 +27,12 @@ class ContactUpdateView(UpdateView):
 
 
 class ContactViewSet(viewsets.ModelViewSet):
-    queryset = Contact.objects.all()  # .order_by('last_name', 'first_name')
+    queryset = Contact.objects.all().order_by('last_name', 'first_name')
     serializer_class = ContactSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
