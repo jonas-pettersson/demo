@@ -9,7 +9,7 @@ class Contact(models.Model):
     email = models.EmailField(max_length=100, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     company = models.ForeignKey(
-        'Company', related_name='contacts', on_delete=models.SET_NULL, null=True)
+        'Company', related_name='contacts', on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name = _("Contact")
