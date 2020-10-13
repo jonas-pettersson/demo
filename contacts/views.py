@@ -8,7 +8,7 @@ from .serializers import ContactSerializer, CompanySerializer
 
 
 def index(request):
-    contact_list = Contact.objects.all()
+    contact_list = Contact.objects.all().order_by('last_name', 'first_name')
     context = {
         'contact_list': contact_list,
     }

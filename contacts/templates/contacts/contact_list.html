@@ -10,7 +10,7 @@
     {% if contact_list %}
         <ul class="w3-ul">
             {% for contact in contact_list %}
-                <li><a href="{% url 'contact_detail' contact.id %}">{{ contact.first_name }} {{ contact.last_name }}</a></li>
+                <li><a href="{% url 'contact_detail' contact.id %}">{{ contact.last_name }}, {{ contact.first_name }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
